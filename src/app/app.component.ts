@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Curso en JS y Angular de Udemy ';
+  title = 'Curso en JS/Angular de Udemy ';
 }
