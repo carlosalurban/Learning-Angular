@@ -8,11 +8,23 @@
     Bienvenido al {{ title }}!
   </h1>
   <p>{{descripcion}}</p>
+  <nav>
+    <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
+    &nbsp;
+    <a [routerLink]="['/zapatillas']" [routerLinkActive]="['active']">zapatillas</a>
+    &nbsp;
+    <a [routerLink]="['/cursos']" [routerLinkActive]="['active']">cursos</a>
+    &nbsp;
+    <a [routerLink]="['/videojuego']" [routerLinkActive]="['active']">Videojuegos</a>
+    &nbsp;
+  </nav>
+  <hr>
   <!--
   <button (click)="ocultarVideojuegos(false)" *ngIf="mostrarVideojuegos">Ocultar Videojuegos</button>
   <button (click)="ocultarVideojuegos(true)" *ngIf="!mostrarVideojuegos">Mostrar</button>
   <app-videojuego *ngIf="mostrarVideojuegos"></app-videojuego>
   <app-cursos></app-cursos>
-  -->
   <app-zapatillas></app-zapatillas>
+  -->
+  <router-outlet></router-outlet>
 </div>
