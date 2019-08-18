@@ -1,3 +1,29 @@
+<h2>Crear Usuario</h2>
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+  <div>
+    <label for="name">Nombre</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="newUSer.name" required>
+    <span *ngIf="name.touched && !name.valid">
+      El nombre no es valido
+    </span>
+  </div>
+  <div>
+    <label for="job">Trabajo</label>
+    <input type="text" name="job" #job="ngModel" [(ngModel)]="newUSer.job" required>
+    <span *ngIf="job.touched && !job.valid">
+      El trabajo no es valido
+    </span>
+  </div>
+  <input type="submit" value="Guardar usuario" [disabled]="!newUser.form.valid">
+</form>
+<div *ngIf="usuarioGuardado">
+  <h2>El usuario se ha guardado correctamente</h2>
+  <h3>{{usuarioGuardado.name}}</h3>
+  <h3>{{usuarioGuardado.job}}</h3>
+</div>
+<br>
+<br>
+<hr>
 {{fecha | date:'dd/MM/yy'}}
 {{fecha | date:'fullDate' | uppercase}}<br>
 {{'HOLA MUNDO USANDO PIPES' | lowercase}}

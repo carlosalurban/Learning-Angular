@@ -11,10 +11,17 @@ export class ExternoComponent implements OnInit {
   public user: any;
   public userId: any;
   public fecha: any;
+  public newUSer: any;
+  public usuarioGuardado: any;
 
   // tslint:disable-next-line:variable-name
   constructor(private _peticionesService: PeticionesService) {
     this.userId = 1;
+    this.newUSer = {
+      name: '',
+      job: ''
+
+    };
   }
 
   ngOnInit() {
@@ -26,6 +33,18 @@ export class ExternoComponent implements OnInit {
     this._peticionesService.getUser(this.userId).subscribe(
       result => {
         this.user = result.data;
+      },
+      error => {
+        console.log(error as any);
+      }
+    );
+  }
+  onSubmit(form) {
+    this._peticionesService.addUser(this.newUSer).subscribe(
+      response => {
+        console.log(response);
+        this.usuarioGuardado = response;
+        form.reset();
       },
       error => {
         console.log(error as any);
